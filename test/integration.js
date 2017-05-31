@@ -468,8 +468,8 @@ describe('integration tests:', function () {
             exec('variadic pepperoni 0 1 olives ', done, function (err, data) {
               (err === undefined).should.be.true;
               data.pizza.should.equal('pepperoni');
-              data.ingredients[0].should.equal(0);
-              data.ingredients[1].should.equal(1);
+              data.ingredients[0].should.equal('0');
+              data.ingredients[1].should.equal('1');
               data.ingredients[2].should.equal('olives');
               done();
             });
@@ -479,8 +479,8 @@ describe('integration tests:', function () {
           it('should parse variadic arguments properly', function (done) {
             exec('variadic-pizza 0 1 olives ', done, function (err, data) {
               (err === undefined).should.be.true;
-              data.ingredients[0].should.equal(0);
-              data.ingredients[1].should.equal(1);
+              data.ingredients[0].should.equal('0');
+              data.ingredients[1].should.equal('1');
               data.ingredients[2].should.equal('olives');
               done();
             });

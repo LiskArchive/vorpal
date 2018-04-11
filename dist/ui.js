@@ -300,7 +300,7 @@ var UI = function (_EventEmitter) {
       var message = prompt.getQuestion();
       var addition = prompt.status === 'answered' ? chalk.cyan(prompt.answer) : line;
       message += addition;
-      prompt.screen.render(message, { cursor: cursor });
+      prompt.screen.render(message);
 
       var key = (e.key || {}).name;
       var value = prompt ? String(line) : undefined;

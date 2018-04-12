@@ -526,7 +526,7 @@ var UI = function (_EventEmitter) {
       var message = prompt.getQuestion();
       var addition = prompt.status === 'answered' ? chalk.cyan(prompt.answer) : prompt.rl.line;
       message += addition;
-      prompt.screen.render(message, { cursor: cursor });
+      prompt.screen.render(message);
       return this;
     }
 

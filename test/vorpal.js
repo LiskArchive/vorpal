@@ -108,6 +108,16 @@ describe('argument parsing', function () {
     obj(vorpal.execSync('required bar')).should.equal(fixture);
   });
 
+  it('should execute a command with a required arg which has double quote', function () {
+    var fixture = obj({ options: {}, str: '{"test": 1}' });
+    obj(vorpal.execSync('required \'{"test": 1}\'')).should.equal(fixture);
+  });
+
+  it('should execute a command with a required arg which has single quote', function () {
+    var fixture = obj({ options: {}, str: "{'test': 1}" });
+    obj(vorpal.execSync('required "{\'test\': 1}"')).should.equal(fixture);
+  });
+
   it('should throw help when not passed a required arg', function () {
     mute();
     var fixture = '\n  Missing required argument. Showing Help:';

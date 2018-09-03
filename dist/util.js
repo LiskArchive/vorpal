@@ -22,16 +22,9 @@ var util = {
    */
 
   parseArgs: function parseArgs(str, opts) {
-    var reg = /"(.*?)"|'(.*?)'|`(.*?)`|([^\s"]+)/gi;
-    var arr = [];
-    var match = void 0;
-    do {
-      match = reg.exec(str);
-      if (match !== null) {
-        arr.push(match[1] || match[2] || match[3] || match[4]);
-      }
-    } while (match !== null);
-
+    // Original vorpal use regex to convert to array, but in commander,
+    // it often requires json args so it is removed
+    var arr = str.split(' ');
     arr = minimist(arr, opts);
     arr._ = arr._ || [];
     return arr;
